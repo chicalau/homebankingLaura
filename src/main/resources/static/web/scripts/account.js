@@ -12,7 +12,7 @@ Vue.createApp({
     created(){
         const URLPARAMS = new URLSearchParams(window.location.search)
         const MYPARAM= URLPARAMS.get(`id`)
-        axios.get("http://localhost:8080/api/accounts/"+ MYPARAM)  
+        axios.get("/api/accounts/"+ MYPARAM)  
         .then(result =>{
             this.cuenta = result.data
             this.transacciones = result.data.transactions
