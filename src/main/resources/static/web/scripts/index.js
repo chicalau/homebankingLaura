@@ -18,7 +18,6 @@ Vue.createApp({
     },
     methods: {
                 singIn () {
-                    if(this.emailSingIn != "" && this.passwordSingIn != ""){
                         if(this.emailSingIn.includes("admin")){
                                 axios.post('/api/login',`email=${this.emailSingIn}&password=${this.passwordSingIn}`,{headers:{'content-type':'application/x-www-form-urlencoded'}})
                                 .then(response => window.location.href = "/web/admin-loan.html")
@@ -40,12 +39,7 @@ Vue.createApp({
                                     })
                                 })
                             }
-                    }else {
-                        Swal.fire({
-                            icon: 'error',
-                            text: 'Usuario o contraseña invalido',
-                        })
-                    }
+                    
                         
                 },
                 singUp (){

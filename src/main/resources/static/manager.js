@@ -12,7 +12,7 @@ Vue.createApp({
         }
     },
     created(){
-        axios.get(`http://localhost:8080/api/clients`)
+        axios.get(`/api/clients`)
         .then(result => {
             this.arrayClientes = result.data;
             this.json = result.data;
@@ -29,11 +29,11 @@ Vue.createApp({
                             lastName: this.inputLastName,
                             email: this.inputEmail
                         }
-                        axios.post(`http://localhost:8080/rest/clients`, this.client)
+                        axios.post(`/rest/clients`, this.client)
                     }
                 },
                 eliminarCliente(clienteParametro){
-                        this.person = `http://localhost:8080/rest/clients/${clienteParametro.id}`
+                        this.person = `/rest/clients/${clienteParametro.id}`
                         console.log(this.person)
                         axios.delete(this.person)
                         //axios.delete(`http://localhost:8080/rest/clients/1`)
