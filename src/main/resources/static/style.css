@@ -1,0 +1,159 @@
+
+:root{
+    --verdeOscuro : rgb(6,54,61);
+    --colorLetraBlanca:  whitesmoke;
+    --naranjaPastelBotones:  #F3B77C; 
+    --grisParaFondo: #dde0e5d2;
+    --grisFuente: rgba(0, 0, 0, 0.604);
+    --rosaPastelBotones:#F59882;
+    --gradientVerde: linear-gradient(90deg, rgba(6,54,61,1) 12%, rgba(31,98,108,1) 100%);
+}
+.fondogradient {
+    background: var(--verdeOscuro);
+    background: var(--gradientVerde);
+}
+header {
+    height: 10vh;
+    margin: 0 3rem 0 3rem !important;
+}
+nav >a {
+    color: var(--colorLetraBlanca);
+    text-decoration: none;
+    padding: 0 15px 3px 15px;
+    font-size: 1.1rem;
+}
+nav >a:hover {
+    color: var(--colorLetraBlanca);
+    letter-spacing: 2px;
+}
+.active {
+    font-weight: 600;
+    border-bottom: 1px solid var(--naranjaPastelBotones);
+}
+h1 {
+    color: var(--colorLetraBlanca);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.user {
+    color: var(--colorLetraBlanca);
+    padding: 0 7px 0 0px;
+    font-size: 1rem;
+    margin: 0 !important;
+}
+.logout {
+    background-color: var(--naranjaPastelBotones) !important;
+    border: none;
+    color: var(--verdeOscuro) ;
+}
+.clientM {
+    background-color: white;
+    width: 50%;
+    padding-bottom: 5rem;
+}
+form>h2 {
+    background-color: var(--grisParaFondo);
+    height: 7vh;
+    width: 100%;
+    padding: .8rem 0 0 1rem;
+    color: var(--verdeOscuro);
+}
+form {
+    width: 100% !important;
+}
+.label--color {
+    color: var(--grisFuente) !important;
+    font-weight: 700;
+}
+.add-client {
+    background-color: var(--rosaPastelBotones) !important;
+    border: none !important;
+    color: rgb(6,54,61);
+    font-weight: 700;
+    width: 130px;
+    height: 40px;
+    font-size: 1rem;
+}
+.table-title{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--verdeOscuro);
+}
+tr>th {
+    font-weight: 500;
+    color: var(--grisFuente);
+}
+.client-json {
+    background-color: var(--naranjaPastelBotones);
+}
+tr {
+    border-bottom: 1px solid #dbdde1fd;
+}
+.contenidoTabla {
+    border-bottom: none;
+}
+#hamburguesa {
+    display: none;
+}
+.usuarioExit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+
+@media(max-width: 1400px){
+    .w-50{
+        width: 75% !important;
+    }
+    main {
+        margin: 0 1.5rem 0 1.5rem;
+    }
+    .w-75{
+        width: 80% !important;
+    }
+    .clientM {
+        width: 60%;
+    }
+    .w-25{
+        width: 35% !important;
+    }
+}
+@media(max-width: 1000px){
+    header {
+        margin: 0 !important;
+    }
+    main {
+        flex-direction: column !important;
+        margin: 0;
+    }
+    .justify-content-between {
+        justify-content: space-around !important;
+    }
+    .w-50{
+        width: 75% !important;
+    }
+    .clientM {
+        width: 75%;
+    }
+    .flex-row {
+            flex-direction: column !important;
+    }
+    .align-items-end {
+        align-items: center !important;
+    }
+    .w-25{
+        width:75%!important;
+    }
+    /*+++++++++++++++++++++++++++++++++++++++++++++++crear hamburguesa*/
+    nav {
+        display: none;
+    }
+    .usuarioExit{
+        width: 25%;
+    }
+} 
+
+

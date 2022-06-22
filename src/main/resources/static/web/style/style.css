@@ -1,0 +1,1329 @@
+:root{
+    --verdeOscuro : rgb(6,54,61);
+    --colorLetraBlanca:  whitesmoke;
+    --naranjaPastelBotones:  #F3B77C; 
+    --grisParaFondo: #dde0e5d2;
+    --grisFuente: rgba(0, 0, 0, 0.604);
+    --rosaPastelBotones:#f59782d1;
+    --gradientVerde: linear-gradient(90deg, rgba(6,54,61,1) 12%, rgba(31,98,108,1) 100%);
+    --gradientVerdeContrario: linear-gradient(90deg, rgba(31,98,108,1) 0%, rgba(6,54,61,1) 90%);
+}
+/*HEADERR*/
+header {
+    max-width: 100vw;
+    height: 10vh;
+    margin: 0 !important;
+    background-image: url(./Recurso\ 1.png);
+}
+nav >a {
+    color: var(--colorLetraBlanca);
+    text-decoration: none;
+    padding: 0 15px 3px 15px;
+    font-size: 1.1rem;
+}
+nav >a:hover {
+    color: var(--colorLetraBlanca);
+    letter-spacing: 2px;
+}
+.activo {
+    font-weight: 600;
+    border-bottom: 1px solid var(--naranjaPastelBotones);
+}
+h1 {
+    color: var(--colorLetraBlanca);
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-left: 2rem;
+}
+.logout {
+    background-color: var(--naranjaPastelBotones) !important;
+    border: none;
+    color: var(--verdeOscuro) ;
+}
+.help {
+    color: var(--colorLetraBlanca);
+    padding: 0 7px 0 0px;
+    font-size: 1rem;
+    margin: 0 !important;
+}
+.usuarioExit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 2rem;
+}
+.responsiveh1ynav {
+    width: 40%;
+}
+/*MAIN +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+main {
+    min-height: 90vh; /* oojo aca menos footer*/
+    max-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.holaUser {
+    width: 100%;
+    height: fit-content;
+    background:  var(--gradientVerde);
+    color: var(--colorLetraBlanca);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 2rem 0 0;
+}
+h2 {
+    width: 100%;
+    height: fit-content;
+    font-weight: 400!important;
+    margin: 0 0 0 2rem;
+    padding: 2rem 0 0 7rem;
+    color: var(--verdeOscuro);
+}
+.navUser {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.navUser>a {
+    height: 100%;
+    font-size: 1.3rem;
+    font-weight: 300!important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navUser>.activo {
+    border-bottom: none;
+    background-color: #fff;
+    color: var(--verdeOscuro);
+    font-weight: 600 !important;
+}
+.navUser>a:hover {
+    background-color: #fff;
+    color: var(--verdeOscuro);
+    font-weight: 600 !important;
+}
+/*++++++++++++++++++mis cuentas+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.divMainUsuario {
+    width: 78%;
+    min-height: 70%;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+}
+.divMainUsuarioAdmin {
+    width: 75%;
+    min-height: 70%;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.divMainUsuarioAdmin>form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divMainUsuarioAdmin>form>table{
+    width: 85%;
+    font-size: 1.2rem;
+}
+
+td{
+    padding: 0.8rem 0 0.8rem 0 ;
+}
+.divMainUsuarioAdmin>form>button{
+    width: 20%;
+    align-self: center;
+    margin: 2rem 0 0 0;
+}
+.porcentaje {
+    width: 3rem;
+}
+.divMainUsuarioAdmin>h2 {
+    color: var(--verdeOscuro);
+}
+.divMainUsuarioAdmin>form>h4{
+    margin: 0 0 2rem 0;
+    color: var(--verdeOscuro);
+}
+
+
+.misCuentas {
+    width: 60%;
+    min-height:50% ;
+    text-align: start;
+    padding: 2rem 0 0 6rem;
+}
+.misCreditos {
+    width: 30%;
+    min-height:50% ;
+    text-align: start;
+    padding: 2rem 0 0 4rem;
+}
+.misCreditos>h3 {
+    width: 100%;
+    font-size: 2.3rem !important;
+    font-weight: 700;
+    color: black;
+}
+.cardCotenedor {
+    justify-self: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    gap: 2rem;
+}
+.card-1{
+    width: 100%;
+    height: 35vh;
+    box-shadow: 0px 0px 21px -5px var(--grisParaFondo);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+}
+.botonesCard {
+    width: 100%;
+    padding: 0.5rem 2.5rem 0 0;
+    border-top: 2px solid var(--grisParaFondo);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.botonesCard>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+
+
+
+
+.numeroCuenta {
+    font-size: 2rem;
+    color: black;
+    font-weight: 600;
+    padding: 2rem 0 0 2.5rem;
+}
+.historialTitulo {
+    color: var(--verdeOscuro) !important;
+    padding-bottom: 2rem !important;
+}
+.saldo {
+    padding-left: 2.5rem;
+    margin: 0;
+}
+.balance {
+    color: var(--grisFuente);
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: start;
+    padding-left: 2.5rem;
+    margin: 0;
+}
+.fechaCreation {
+    color: var(--grisFuente);
+    text-align: end;
+    font-size: 1.8rem;
+    padding-right: 2.5rem;
+}
+.botonTransacciones {
+    align-self: center;
+    background-color: var(--rosaPastelBotones);
+    padding: 5px 10px 5px 10px;
+    border-radius: 7px;
+    color: var(--verdeOscuro);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+.botonTransferir {
+    align-self: center;
+    background-color: var(--naranjaPastelBotones);
+    padding: 5px 10px 5px 10px;
+    border-radius: 7px;
+    color: var(--verdeOscuro);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+.eliminarAccountButton {
+    align-self: center;
+    background-color: var(--rosaPastelBotones);
+    padding: 5px 10px 5px 10px;
+    border-radius: 7px;
+    color: var(--verdeOscuro);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    margin-left: 2rem;
+}
+.eliminarAccountButton:hover,
+.botonTransferir:hover,
+.botonTransacciones:hover,
+.prestamoBoton:hover{
+    color: white;
+}
+.cardNewAccount {
+    width: 20rem;
+    height: 35vh;
+    text-align: center;
+    background-color: var(--naranjaPastelBotones) ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 1.5rem 0 1.5rem;
+    border-radius: 5px;
+}
+.cardNewAccount>button {
+    background-color: var(--verdeOscuro) !important;
+    color: var(--naranjaPastelBotones);
+    letter-spacing: 1px;
+}
+.newCuentaTitulo {
+    color: var(--verdeOscuro);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.card-2{
+    width: 100%;
+    height: 35vh;
+    box-shadow: 0px 0px 21px -5px var(--grisParaFondo);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    background-color: rgba(9, 108, 123, 0.378);
+}
+.nombreCredito {
+    font-size: 1.8rem;
+    color: black;
+    font-weight: 600;
+    padding: 2rem 0 0 1rem;
+}
+.monto {
+    color: var(--grisFuente);
+    font-weight: 500;
+    font-size: 2.5rem;
+    text-align: end;
+    padding-right: 2.5rem;
+    margin: 0;
+}
+.cuotas {
+    color: var(--grisFuente);
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: end;
+    padding-right: 2.5rem;
+    margin: 0;
+}
+.card-3 {
+    width: 100%;
+    height: 35vh;
+    box-shadow: 0px 0px 21px -5px var(--grisParaFondo);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    background: var(--gradientVerde);
+    align-items: center;
+}
+.publiPrestamo {
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 600;
+    padding: 2rem 2rem 0 2rem;
+}
+.publiTipo {
+    color: white;
+    font-weight: 200;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 2rem 0 2rem;
+    margin: 0;
+}
+.publiMonto {
+    color: white;
+    font-weight: 500;
+    font-size: 1.8rem;
+    padding:0 7px 5px 7px;
+    border-bottom:1px solid #F3B77C;
+    margin: 0;
+    width: fit-content;
+}
+.cuotasPubli {
+    color: white;
+    font-weight: 400;
+    font-size: 1.4rem;
+    padding:0 7px 5px 7px;
+    margin: 0;
+    width: fit-content;
+}
+.prestamoBoton{
+    background-color: var(--rosaPastelBotones) ;
+    border-color: var(--rosaPastelBotones);
+    margin-left: 5px;
+    color: var(--verdeOscuro);
+    font-weight: 600;
+    padding: 7px;
+    text-decoration: none;
+    border-radius: 7px;
+}
+.grandeSeguridad {
+    width: 22%;
+    min-height:70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.div--seguridad{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid var(--verdeOscuro);
+}
+.div--seguridad>h4 {
+    background-color: var(--verdeOscuro);
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+.div--seguridad>div {
+    padding: 7px 25px 5px 25px;
+}
+.div--seguridad>div .negritaSec {
+    font-weight: 700;
+}
+.containerGrisClaro {
+    background-color: var(--grisParaFondo);
+    padding: 15px 25px 15px 25px !important;
+}
+.formSeguridad {
+    align-items: flex-start;
+}
+iframe {
+    width: 60px;
+    height: 80px;
+}
+.direcciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+/*+++++++++++++++++++++++CARACTERISTICAS ABAJOOOOOOOOOOOOOOOOOOOO*/
+.infoEx {
+    width: 100%;
+    min-height: 23vh;
+    background:  var(--gradientVerde);
+    color: var(--colorLetraBlanca);
+}
+.caracteristicas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2%;
+    gap: 3rem;
+}
+.caracteristicas>div {
+    width: 12%;
+    text-align: center;
+}
+.caracteristicas>div h5 {
+    font-size: 1.4rem;
+}
+.caracteristicas>div p {
+    font-size: 1rem;
+}
+.infoEx>div i{
+    height: 35px;
+}
+
+/*ACCOUNT -> TRANSACCIONES*/
+.btn-primary{
+    background-color: var(--naranjaPastelBotones) !important;
+    border-color: var(--naranjaPastelBotones)!important;
+    margin-left: 5px;
+    color: var(--verdeOscuro);
+    font-weight: 600;
+}
+.cardnumber {
+    align-self: flex-end;
+    padding: .5rem .5rem 0 0;
+    margin: 0 !important;
+}
+.mainAccount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4rem;
+}
+.table {
+    width: 45vw;
+}
+#caracteristicasMobile {
+    display: none;
+}  
+/*++++++++++++++++++++++++++++++++++tarjetas*/
+.divMainTarjetas {
+    width: 68%;
+    min-height:80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+.miTarjeta {
+    padding: 2.5rem;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    box-shadow: 0px 0px 21px -5px var(--grisParaFondo);
+}
+.eliminarButton {
+    background-color: var(--rosaPastelBotones) !important;
+}
+
+/*TARJETAS*/ 
+.card {
+    position: relative;
+    height: 270px;
+    width: 450px;
+    border-radius: 25px;
+    background: var(--gradientVerde) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+.logo img,
+.chip img,
+.number,
+.name,
+.from,
+.to,
+.wave,
+.typeColor,
+.ring {
+    position: absolute; 
+}
+.logo img,
+.chip img,
+.number,
+.name,
+.from,
+.to {
+    z-index: 2;
+}
+.typeColor {
+    font-size: 0.5rem;
+    color: white;
+    top: 30px;
+    left: 30px;
+}
+.logo img {
+    top: 35px;
+    right: 40px;
+    width: 80px;
+    height: auto;
+}
+.chip img {
+    top: 120px;
+    left: 40px;
+    width: 50px;
+    height: auto;
+    opacity: 0.8;
+}
+.wave {
+    top: 120px;
+    left: 108px;
+    opacity: 0.8;
+}
+.number,
+.name,
+.from,
+.to {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+}
+.number {
+    font-size: 1.2rem;
+    left: 40px;
+    bottom: 65px;
+    font-family: "Nunito", sans-serif;
+}
+.name {
+    font-size: 0.9rem;
+    left: 40px;
+    bottom: 35px;
+}
+.from {
+    font-size: 0.8rem;
+    bottom: 35px;
+    right: 110px;
+}
+.to {
+    font-size: 0.8rem;
+    bottom: 35px;
+    right: 40px;
+}
+.ring {
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background: rgb(27, 83, 92);
+    border: 50px solid rgba(255, 255, 255, 0.1);
+    bottom: -250px;
+    right: -250px;
+    box-sizing: border-box;
+}
+.ring::after {
+    content: "";
+    position: absolute;
+    height: 600px;
+    width: 600px;
+    border-radius: 50%;
+    background: transparent;
+    border: 30px solid  #f3b77cc2;
+    bottom: -80px;
+    right: -110px;
+    box-sizing: border-box;
+}
+.card__strip {
+    background: #000;
+    height: 50px;
+    margin-bottom: 30px;
+}
+.card__signature {
+    float: left;
+    width: 65%;
+    height: 40px;
+    margin-left: 10px;
+    background: #999;
+}
+.card__ccv {
+    float: left;
+    width: 3rem;
+    margin-top: 5px;
+    padding: 7px;
+    background: #fff;
+    color: #111;
+    line-height: 1;
+}
+.card--back {
+    padding: 2rem 0 0 0 ;
+    text-align: left;
+    display: inline-block;
+    background: var(--gradientVerdeContrario) !important;
+}
+.cardG {
+    background: none !important;
+    background-color:#efd2b6 !important;
+}
+.cardG>.ring {
+    background: #F3B77C !important;
+}
+.cardG>.ring::after {
+    border: 30px solid #F3B77C !important;
+    background: var(--gradientVerdeContrario);
+}
+.cardG>.ring {
+    border: 50px solid rgb(30, 118, 132) !important;
+    background: var(--gradientVerde);
+}
+.cardGback {
+    padding: 2rem 0 0 0 ;
+    text-align: left;
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(18,67,74,1) 0%, rgba(31,98,108,1) 50%) !important;
+}
+.cardG>.typeColor {
+    color: var(--verdeOscuro);
+}
+.cardS {
+    background:white!important;
+}
+.cardS>.ring::after {
+    border: 30px solid rgb(30, 118, 132) !important;
+    background: var(--gradientVerdeContrario);
+}
+.cardS>.chip img {
+    border: 3px solid var(--grisParaFondo)!important;
+    background-color: var(--grisParaFondo);
+    border-radius: 5px;
+    opacity: 1;
+}
+.cardS>.typeColor {
+    color: var(--verdeOscuro);
+}
+.cardSback {
+    padding: 2rem 0 0 0 ;
+    text-align: left;
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(18,67,74,1) 0%, rgba(31,98,108,1) 50%) !important;
+}
+.cardS>.wave {
+    border: 3px solid var(--grisParaFondo)!important;
+    background-color: var(--grisParaFondo);
+    border-radius: 5px;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++++++++++*/
+.fondogradient {
+    background: var(--gradientVerde);
+    padding: 0 10rem 0 20rem;
+}
+.singIn {
+    width: 30%;
+    background-color:white;
+    border-radius: 7px;
+}
+.singIn>h3 {
+    background-color: var(--grisParaFondo);
+    height: 7vh;
+    width: 100%;
+    padding: 0.8rem 0 0 1rem;
+    color: var(--verdeOscuro);
+    text-align: center;
+}
+.singIn>.singInSecurity {
+    width: 100%;
+    font-weight:600;
+    background-color: var(--rosaPastelBotones);
+    padding: 1rem 1.3rem 0 1.3rem;
+}
+.singUp {
+    width: 40%;
+    height: 50vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.singUp>h3 {
+    height: 10vh;
+    width: 100%;
+    padding: 0.8rem 0 0 1rem;
+    color: var(--verdeOscuro);
+    text-align: center;
+    margin: 2rem 0 0 0;
+}
+.singUp>button {
+    align-self: flex-end;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++cards*/
+.containerPubliCards {
+    min-height:80vh;
+    width: 20%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+}
+.containerPubliCards>div {
+    position: fixed;
+    background-color: var(--rosaPastelBotones);
+    margin-right: 3rem;
+}
+
+.publiCards {
+    width: 100%;
+}
+.p1cards,
+.p2cards,
+.p3cards,
+.botonCards {
+    padding: 1rem !important;
+    text-align: center;
+}
+.p1cards {
+    position: relative;
+    top: 2.2rem;
+    text-align: end;
+    color: var(--verdeOscuro);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.p2cards {
+    color: var(--verdeOscuro);
+    font-size: 2rem;
+}
+.p3cards>p {
+    margin: 0 !important;
+    color: var(--grisFuente);
+}
+.mainCards {
+    min-height: 90vh;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.botonCards {
+    padding: 4rem 0 0 0 ;
+    text-align: end;
+    border-top: 1px solid var(--grisParaFondo);
+}
+.botonCards>a {
+    font-size: 1.4rem;
+    color: var(--verdeOscuro);
+    text-decoration: none;
+}
+.botonCards>a:hover {
+    color: white;
+}
+.formCreateCards {
+    width: 30rem;
+    height:25rem;
+    border: 2px solid var(--verdeOscuro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mainCreateCards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f3b77cc0;
+}
+.formCreateCards>div>h4 {
+    margin: 0;
+    padding: 1rem;
+    color: #8d4d0e;
+    font-weight: 700 !important;
+    font-size: 1.3rem;
+}
+.formCreateCards>div>label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: var(--verdeOscuro);
+    font-size: 1.5rem;
+}
+.formCreateCards>div>select{
+    width: 8rem;
+    padding: 2px 5px 2px 5px;
+    margin: 25px 0 25px 0;
+    border: 1px solid var(--verdeOscuro);
+    border-radius: 5px;
+}
+.formCreateCards>button {
+    margin-top: 2rem;
+    background-color: var(--verdeOscuro);
+    padding: 10px 20px 10px 20px;
+    color: #F3B77C;
+    border: none;
+    font-size: 1.3rem;
+    border-radius: 5px;
+}
+.selectCreateCards {
+    margin: 0 25px 0 0;
+    color: #8d4d0e;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.seVe {
+    display: inline;
+}
+.noSeVe {
+    display: none;
+}
+.tiposdetarjetaspubli {
+    display: flex !important; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    gap: 5rem;
+}
+.cardPubli {
+    width: 18rem;
+    height: 11rem;
+}
+.publicardtype {
+    display: flex !important; 
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid var(--verdeOscuro);
+    padding: 1.5rem;
+    gap: 1rem;
+}
+.textcardPubli {
+    width: 22rem;
+    padding-top: 2rem;
+}
+.tiposdetarjetaspubli>div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.cardname {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.nuevaCard {
+    width: 65px; 
+    height: 65px; 
+    background: var(--naranjaPastelBotones);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: relative;
+    bottom: 7rem;
+    left: 58rem;
+}
+.nuevaCard>p{
+    padding: 15px 32px 0 0 ;
+    text-align: center;
+    transform: rotate(-45deg);
+}
+.viejaCard {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background-color: #ed6344d1;
+    position: relative;
+    bottom: 13rem;
+    left: 58rem;
+}
+.viejaCard>p {
+    padding-top: 20px;
+    text-align: center;
+}
+a {
+    text-decoration: none !important;
+}
+.cuentaHistoralTransacciones {
+    color: var(--verdeOscuro);
+}
+.regresar {
+    font-size: 1.4rem;
+    color: white;
+}
+.mainTransfers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #f3b77cc0;
+    padding: 7rem 7rem 0 7rem;
+} 
+.mainTransfers>form{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.mainTransfers>form>div {
+    width: 100%;
+}
+.destinoTransferRadio{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.destinoTransferRadio>h4{
+    width: 100%;
+    text-align: center;
+}
+.destinoTransferRadio>label{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.spanMarginR{
+    margin-right: 1.3rem;
+}
+label>span{
+    margin-right: 1.3rem;
+}
+.descripcion>input {
+    width: 75%;
+} 
+.mainTransfers>form>div>label {
+    width: 100%;
+}
+.mainTransfers>form>button{
+    align-self: center;
+    width: 30%;
+    background-color: var(--verdeOscuro) !important;
+    color: white;
+}
+.mainTransfers>form>button:hover{
+    color: var(--naranjaPastelBotones);
+}
+.transferOrigen {
+    padding: 7rem 0 0 0;
+}
+.transferOrigen>table {
+    border: 3px solid white;
+    width: 100%;
+}
+.transferOrigen>h5{
+    color: var(--verdeOscuro);
+}
+.table {
+    color: white;
+}
+tr>th,
+tr>td {
+    color: #000;
+}
+.transferThead>tr>th {
+    font-weight: 500!important;
+}
+.mainCreateLoans{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f3b77cc0;
+    padding: 7rem 7rem 0 7rem;
+}
+.mainCreateLoans>h3 {
+    color: var(--verdeOscuro);
+    padding: 0 0 2rem 0 ;
+}
+.loanApp {
+    padding: 3rem;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+    border: 1px solid white;
+}
+.loanApp>p {
+    margin: 0 !important;
+    text-align: center;
+}
+.loanApp>div>p {
+    font-weight: 500;
+}
+.loanApp>div {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+.montoPorCuota {
+    width: 100%;
+    align-self: flex-end !important;
+    text-align: end;
+    font-weight: 500;
+}
+.loanApp>button {
+    width: fit-content;
+    align-self: center;
+    background-color: var(--verdeOscuro) !important;
+    color: white;
+}
+.loanApp>button:hover{
+    color: var(--naranjaPastelBotones);
+}
+.loanDestino {
+    align-self: flex-end;
+}
+.imgTransfer{
+    width: 100%;
+    
+}
+.publiTransfers{
+    width: 40%;
+}
+.publiTransfers>h3{
+    font-size: 2.5rem;
+    text-align: end;
+    padding-top: 2rem;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.module {
+    padding:0 1rem 1rem 1rem;
+    color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-image: 
+    linear-gradient(
+        to bottom, 
+        rgb(6,54,61), 
+        rgba(0, 0, 0, 0)
+    ) 1 100%;
+}
+
+@media (max-width:1500px) {
+    .caracteristicas {
+        padding: 2rem 1.5rem 10px 1.5rem;
+        gap:1.5rem;
+        align-items: flex-start;
+    }
+    .caracteristicas>div {
+        width: 12.5rem;
+        text-align: center;
+    }
+    .caracteristicas>div h5 {
+        font-size: 1.2rem;
+    }
+    .grandeSeguridad {
+        width: 28%;
+    }
+    .divMainUsuario {
+        width: 70%;
+    }
+    .responsiveh1ynav {
+        width: 60%;
+    }
+    .responsiveMain100vw{
+        padding: 2rem !important;
+    }
+    .misCuentas {
+        padding: 2rem 0 0 2rem;
+    }
+    .card-1,
+    .card-2, 
+    .card-3,
+    .cardNewAccount {
+        height: 42vh;
+    }
+    .misCreditos {
+        padding: 2rem 0 0 1.5rem;
+        width: auto;
+    }
+    .publiPrestamo {
+        font-size: 1.1rem;
+    }
+    .publiTipo {
+        font-size: .9rem;
+        padding: 0;
+    }
+    .publiMonto,
+    .cuotasPubli {
+        color: white;
+        font-weight: 400;
+        font-size: .9rem;
+    }
+    .table {
+        width: 70vw;
+    }
+    .mainTransfers{
+        padding: 5rem 2rem 0 2rem;
+    }
+    .transferOrigen {
+        padding: 9rem 0 0 0;
+    }
+    .mainTransfers>form>button {
+        width: 40%;
+    }
+    .descripcion>input {
+        width: 100%;
+    }
+    .montoT>input{
+        min-width: 100% !important;
+    }
+    .miTarjeta{
+        flex-direction: column;
+    }
+    .viejaCard {
+        bottom: 10rem;
+        left: 28rem;
+    }
+    .containerPubliCards {
+        width: 30%;
+    }
+    .containerPubliCards>div {
+        margin-right: 0;
+    }
+    .publicardtype {
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        padding-bottom: 0;
+    }
+    .textcardPubli{
+        width: 22rem;
+        padding-top: 1rem;
+    }
+    .mainCreateCards>div {
+        margin: 2rem 0 2rem 0;
+    }
+    .tiposdetarjetaspubli{
+        align-items: flex-start;
+    }
+    .loanApp>div {
+        gap: 10px;
+    }
+    .loanApp {
+        width: 36.5rem;
+    }
+    .montoPorCuota {
+        text-align: start !important;
+    }
+    .loanDestino>select {
+        width: 50%;
+    }
+    .loanDestino {
+        justify-content: center !important;
+    }
+    .singIn {
+        width: 38%;
+    }
+    .historialTitulo {
+        padding: 0 0 2.5rem 0 !important;
+    }
+}
+
+@media(max-width: 950px){
+    header {
+        height: 9vh;
+        margin: 0 !important;
+        padding: 13px 0 13px 0;
+    }
+    .singIn,
+    .singUp {
+        width: 80%;
+        height: fit-content ;
+        margin-top: 3rem;
+    }
+    main {
+        flex-direction: column !important;
+        margin: 0;
+    }
+    .usuarioExit{
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        width: fit-content;
+        padding-right: 15px;
+    }
+    .help {
+        padding: 0;
+    }
+    .cardCotenedor {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .divMain {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+    .grandeSeguridad {
+        width: 100%;
+    }
+    .div--seguridad{
+        width: 100%;
+        height: fit-content;
+        border: 1px solid var(--verdeOscuro);
+    }
+    #caracteristicasPC {
+        display: none;
+    }
+    .carousel-item.active,
+    .carousel-item-next,    
+    .carousel-item-prev{
+    display:block;
+    }
+    #caracteristicasMobile {
+        display: flex;
+        justify-content: center;
+    }
+    .d-flex .responsiveh1ynav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 2rem;
+    }
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+    .miTarjeta {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-row{
+        flex-direction: column !important;
+    }
+    .divMainUsuario {
+        width: 90%;
+        flex-direction: column;
+        margin: 0 2rem 0 2rem;
+    }
+    .misCuentas {
+        width: 100%;
+    }
+    h2 {
+        width: fit-content;
+    }
+    .publiPrestamo,
+    .publiTipo,
+    .publiMonto,
+    .cuotasPubli {
+        font-size: 1.4rem;
+    }
+    .numeroCuenta {
+        padding-left: 2rem;
+    }
+    
+    .cardNewAccount {
+        align-self: flex-end;
+    }
+    .eliminarAccountButton{
+        margin-left: 1rem;
+    }
+    .table {
+        width: 95%;
+    }
+    .historialTitulo {
+        padding: 0 0 2.5rem 0 !important;
+    }
+} 

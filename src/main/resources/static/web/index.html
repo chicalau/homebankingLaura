@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>index</title>
+</head>
+<body>
+    <header class="d-flex justify-content-between align-items-center">
+            <h1 class="text-center">Mindhub Brothers: Home banking</h1>
+    </header>
+
+
+    <main id="app" class="d-flex flex-row justify-content-around align-items-center fondogradient responsiveMain100vw">
+        <form  class="d-flex flex-column align-items-center singUp">
+            <h3>REGISTRARSE</h3>
+            <div class="form-row pt-2 w-75">
+                <div class="d-flex flex-row w-100 form-group col-md-5 mb-3">
+                    <label class="label--color w-50" for="email">Nombre:</label>
+                    <input type="email" class="form-control" id="email" v-model="nameSingUp" required>
+                </div>
+                <div class="d-flex flex-row w-100 form-group col-md-5 mb-3">
+                    <label class="label--color w-50" for="email">Apellido:</label>
+                    <input type="email" class="form-control" id="email" v-model="lastNameSingUp" required>
+                </div>
+                <div class="d-flex flex-row w-100 form-group col-md-5 mb-3">
+                    <label class="label--color w-50" for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" v-model="emailSingUp"placeholder="tuemail@example.com" required>
+                </div>
+    
+                <div class="d-flex flex-row w-100 form-group col-md-5 mb-3">
+                    <label class="label--color w-50"  for="password">Password:</label>
+                    <input type="text" class="form-control" id="password" v-model="passwordSingUp" required>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-end w-75">
+                <button type="button" class="btn btn-primary mt-1 mb-4 add-client" v-on:click="singUp()" >Registrarse</button>
+            </div>
+            
+        </form>
+        <form  class="d-flex flex-column align-items-center singIn">
+            <h3>INGRESAR</h3>
+            <div class="form-row pt-2 w-75">
+                <div class="d-flex flex-row w-100 form-group col-md-5 mb-3">
+                    <label class="label--color w-50" for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" v-model="emailSingIn"placeholder="tuemail@example.com" required>
+                </div>
+    
+                <div class="d-flex flex-row w-100 form-group col-md-5 mb-3">
+                    <label class="label--color w-50"  for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" v-model="passwordSingIn" placeholder="contraseña" required>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-end w-75">
+                <button type="button" class="btn btn-primary mt-1 mb-4 botonSingIn" v-on:click="singIn()">Ingresar</button>
+            </div>
+            <div class="singInSecurity">
+                <p>Por tu seguridad, nunca compartas los datos de acceso ni
+                    códigos de validación de tu Home Banking.</p>
+            </div>
+        </form>
+    </main>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://kit.fontawesome.com/8872e142cf.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>

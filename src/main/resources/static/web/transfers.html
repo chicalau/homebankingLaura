@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
+    <title> Transfers</title>
+</head>
+<body>
+    <div id="app">
+
+        <header class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between responsiveh1ynav">
+                <a href="./accounts.html"><h1 class="text-center">Mindhub Brothers</h1></a>
+            </div>
+            <div class="usuarioExit">
+                <p class="help">Ayuda <i class="fa-regular fa-circle-question"></i></p>
+                <button type="button" class="btn btn-primary logout" v-on:click="logoUt()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+            </div>
+        </header>
+        <div class="holaUser">
+            <nav class="navUser">
+                <a href="./accounts.html">Productos</a>
+                <a href="./cards.html">Tarjetas</a>
+                <a href="#" class="activo">Traferencias</a>
+            </nav>
+        </div>
+    
+        <main class="mainTransfers">
+            <div v-if="cuentaOrigen == ''" style="display: inline;" class="publiTransfers module">
+                <img src="./style/promo-fraud-alert.jpg" alt="señor transferencia" class="imgTransfer">
+                <h3>Haz transferencias de manera fácil, y cómoda</h3>
+            </div>
+            <form>
+                <div class="destinoTransferRadio">
+                    <h4>¿Transferencia a productos propios o de terceros?</h4>
+                    <label>
+                        <div>
+                            <input type="radio" name="" id="" v-model="propiaotercero" value="propia">CUENTA PROPIA
+                        </div>
+                        <div>
+                            <input type="radio" name="" id="" v-model="propiaotercero" value="tercero">CUENTA DE TERCERO
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="cuentaOrigen"></label>
+                    <span class="spanMarginR">Producto origen:</span>
+                    <select name="cuentaOrigen" id="cuentaOrigen" v-model="cuentaOrigen">
+                        <option v-for="cuenta in cuentas" v-bind:value="cuenta.number">{{cuenta.number}} -- ${{cuenta.balance}}</option>
+                    </select>
+                </div>
+                {{filtrarCuentasQueNoSeanDeOrigen}}
+
+                <div v-bind:class="{seVe: propiaotercero == 'propia', noSeVe : propiaotercero == 'tercero'}">
+                    <label for="cuentaDestinoPropia"></label>
+                    <span class="spanMarginR">Producto destino:</span>
+                    <select name="cuentaDestinoPropia" id="cuentaDestinoPropia" v-model="cuentaDestino">
+                        <option v-for="cuentaD in cuentasDestino" v-bind:value="cuentaD.number">{{cuentaD.number}}</option>
+                    </select>
+                </div>
+                <div v-bind:class="{seVe: propiaotercero == 'tercero', noSeVe : propiaotercero == 'propia'}">
+                    <label for="cuentaDestino">
+                        <span >Producto destino:</span>
+                        <input type="text" v-model="cuentaDestino">
+                    </label>
+                </div>
+                <div>
+                    <label for="monto" class="montoT">
+                        <span>Valor a transferir $:</span>
+                        <input type="number" v-model="montoAtransferir">
+                    </label>
+                </div>
+                <div>
+                    <label for="descripcion" class="descripcion">
+                        <span>Descripcion:</span>
+                        <input type="text" v-model="descripcion">
+                    </label>
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Hacer Tranferencia</button>
+            </form>
+
+    <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Deseas continuar con la transacción?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
+                            <button type="button" class="btn btn-primary" v-on:click="transferir()">Transferir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {{ultimasTransacciones}}
+            <div v-if="cuentaOrigen != '' " class="transferOrigen">
+                <h5 >Ultimas transferencias cuenta origen</h5>
+                <table class="table table-bordered table-hover table-responsive">
+                    <thead class="transferThead">
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Monto</th>
+                            <th>Fecha</th>
+                            <th>Descripcion</th>
+                        </tr>
+                    </thead>  
+                    <tbody>
+                        <tr v-for="transaction in transacciones">
+                            <td v-if="transaction.amount < 0" style="color: red;">{{transaction.type}}</td>
+                            <td v-else="transaction.amount > 0" style="color: green;">{{transaction.type}}</td>
+                            <td  v-if="transaction.amount < 0" style="color: red;">${{transaction.amount}}</td>
+                            <td  v-else="transaction.amount > 0" style="color: green;">${{transaction.amount}}</td>
+                            <td>{{transaction.date.split('T').join(' Hora: ').split('.').slice(0,1).join('')}}</td>
+                            <td>{{transaction.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://kit.fontawesome.com/8872e142cf.js" crossorigin="anonymous"></script>
+    <script src="./scripts/transfers.js"></script>
+</body>
+</html>
