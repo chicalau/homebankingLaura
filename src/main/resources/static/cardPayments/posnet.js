@@ -22,7 +22,7 @@ Vue.createApp({
 
         paymentCard () {
 
-                axios.post('/api/payments',{ number: this.cardNumber, cvv: this.cvv, amount: 600, month:this.monthFix, year:this.yearFix, description:"compra en origami"})
+                axios.post('/api/payments',{ number: this.cardNumber, cvv: this.cvv, amount: 1600, month:this.monthFix, year:this.yearFix, description:"compra en origami"})
                 .then(response => {
                     Swal.fire('Pago realizado','','success')
                     .then(res=> window.location.href = "", 5000)
@@ -30,7 +30,7 @@ Vue.createApp({
                 .catch (error => {
                     Swal.fire({
                         icon:'error',
-                        text: error.response.data,
+                        text: error.response.data
                         })
                 })
                 console.log(this.cardNumber)
