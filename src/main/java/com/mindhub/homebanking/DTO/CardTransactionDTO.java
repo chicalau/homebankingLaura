@@ -12,17 +12,22 @@ public class CardTransactionDTO {
 
     private int cvv;
 
+    private int month;
+
+    private int year;
 
     private double amount;
 
     private String description;
 
 
-    public CardTransactionDTO(String number, int cvv,  double amount, String description) {
+    public CardTransactionDTO(String number, int cvv,  double amount, String description, int month, int year) {
         this.number = number;
         this.cvv = cvv;
         this.amount = amount;
         this.description = description;
+        this.month = month;
+        this.year = year;
     }
 
     public String getNumber() {
@@ -53,5 +58,19 @@ public class CardTransactionDTO {
         this.description = description;
     }
 
+    public int getMonth() {
+        return month;
+    }
 
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 }

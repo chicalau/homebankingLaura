@@ -121,7 +121,6 @@ public class TransactionController {
         if(cardTransactionDTO.getAmount() <= 0){
             return new ResponseEntity<>("Invalid amount", HttpStatus.FORBIDDEN);
         }
-
         if(cardTransactionDTO.getAmount() > account.getBalance()){
             return new ResponseEntity<>("Account does not have enough amount", HttpStatus.FORBIDDEN);
         }
@@ -131,9 +130,10 @@ public class TransactionController {
         //if(cardTransactionDTO.getType() != card.getType()){
         //  return new ResponseEntity<>("Error card type", HttpStatus.FORBIDDEN);
         //}
-        //if(cardTransactionDTO.getThruDate().getYear() != card.getThruDate().getYear() && cardTransactionDTO.getThruDate().getMonthValue() != cardTransactionDTO.getThruDate().getMonthValue()){
-        //  return new ResponseEntity<>("Error thru date", HttpStatus.FORBIDDEN);
-        //}
+
+        if(card.getThruDate().getMonthValue() != cardTransactionDTO.getMonth() && card.getThruDate().getYear() != cardTransactionDTO.getYear()){
+          return new ResponseEntity<>("Error thru date", HttpStatus.FORBIDDEN);
+        }
 
         Transaction newTransaction = new Transaction(TransactionType.DEBITO,-cardTransactionDTO.getAmount(), cardTransactionDTO.getDescription(), LocalDateTime.now(),account);
         transactionService.saveTransaction(newTransaction);
