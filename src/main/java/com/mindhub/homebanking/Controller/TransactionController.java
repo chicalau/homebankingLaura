@@ -114,6 +114,14 @@ public class TransactionController {
     @PostMapping("/payments")
     public ResponseEntity<Object> paymentTransaction(@RequestBody CardTransactionDTO cardTransactionDTO){
 
+        if(cardTransactionDTO.getNumber().isEmpty()){
+            return new ResponseEntity<>("Complete valid card number", HttpStatus.FORBIDDEN);
+        }
+
+        if(cardService.getByNumber(cardTransactionDTO.getNumber()) == null ){
+            return new ResponseEntity<>("Invalid card", HttpStatus.FORBIDDEN);
+        }
+
         Card card = cardService.getByNumber(cardTransactionDTO.getNumber());
         Client client = card.getCardHolder();
         Account account = client.getAccounts().stream().filter(account1 -> account1.isActive()).findFirst().orElse(null);
