@@ -88,49 +88,6 @@ public class CardController {
         return new ResponseEntity<>("Created",HttpStatus.CREATED);
     }
 
-    @Transactional
-    @PostMapping("clients/current/cardTransaction")
-    public ResponseEntity<Object> cardTransaction(@RequestBody CardTransactionDTO cardTransactionDTO){
-
-
-        Card card = cardService.getByNumber(cardTransactionDTO.getNumber());
-        Client client = card.getCardHolder();
-        List<Account> accounts = client.getAccounts().stream().collect(Collectors.toList());
-        Account account = accounts.stream().max(Comparator.comparingDouble(Account::getBalance)).get();
-
-
-        if(!client.getAccounts().contains(account)){
-            return new ResponseEntity<>("Card does not belong to the customer", HttpStatus.FORBIDDEN);
-        }
-        if(cardTransactionDTO.getAmount() > account.getBalance()){
-            return new ResponseEntity<>("Account does not have enough amount", HttpStatus.FORBIDDEN);
-        }
-        if(cardTransactionDTO.getCvv() != card.getCvv()){
-            return new ResponseEntity<>("Error cvv", HttpStatus.FORBIDDEN);
-        }
-        if(cardTransactionDTO.getType() != card.getType()){
-            return new ResponseEntity<>("Error card type", HttpStatus.FORBIDDEN);
-        }
-        if(card.getThruDate().isBefore(LocalDate.now())){
-            return new ResponseEntity<>("Card Expired", HttpStatus.FORBIDDEN);
-        }
-        if(cardTransactionDTO.getThruDate().getYear() != card.getThruDate().getYear() && cardTransactionDTO.getThruDate().getMonthValue() != cardTransactionDTO.getThruDate().getMonthValue()){
-            return new ResponseEntity<>("Error thru date", HttpStatus.FORBIDDEN);
-        }
-        if(!(client.getFirstName() + client.getLastName()).equals(cardTransactionDTO.getCardHolder())){
-            return new ResponseEntity<>("Error client name", HttpStatus.FORBIDDEN);
-        }
-
-
-        Transaction newTransaction = new Transaction(TransactionType.DEBITO,- cardTransactionDTO.getAmount(), cardTransactionDTO.getDescription(), LocalDateTime.now(),account);
-        transactionService.saveTransaction(newTransaction);
-
-        account.setBalance(-cardTransactionDTO.getAmount());
-        accountService.saveAccount(account);
-
-        return new ResponseEntity<>("Created",HttpStatus.CREATED);
-
-    }
 
 
 }

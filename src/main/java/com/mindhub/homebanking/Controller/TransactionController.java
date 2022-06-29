@@ -1,9 +1,11 @@
 package com.mindhub.homebanking.Controller;
 
+import com.mindhub.homebanking.DTO.CardTransactionDTO;
 import com.mindhub.homebanking.DTO.TransactionDTO;
 import com.mindhub.homebanking.models.*;
 import com.mindhub.homebanking.repositories.TransactionRepository;
 import com.mindhub.homebanking.services.AccountService;
+import com.mindhub.homebanking.services.CardService;
 import com.mindhub.homebanking.services.ClientService;
 import com.mindhub.homebanking.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,9 @@ public class TransactionController {
 
     @Autowired
     private TransactionRepository transactionRepository;
+
+    @Autowired
+    private CardService cardService;
 
     @GetMapping("/transactions")
     public List<TransactionDTO> getAll(@RequestParam (required = false) @DateTimeFormat (pattern = "yyyy-MM-dd") LocalDate from,
@@ -102,6 +107,42 @@ public class TransactionController {
         accountService.saveAccount(destino);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @CrossOrigin
+    @Transactional
+    @PostMapping("/payments")
+    public ResponseEntity<Object> paymentTransaction(@RequestBody CardTransactionDTO cardTransactionDTO){
+
+        Card card = cardService.getByNumber(cardTransactionDTO.getNumber());
+        Client client = card.getCardHolder();
+        Account account = client.getAccounts().stream().filter(account1 -> account1.isActive()).findFirst().orElse(null);
+
+        if(cardTransactionDTO.getAmount() <= 0){
+            return new ResponseEntity<>("Invalid amount", HttpStatus.FORBIDDEN);
+        }
+
+        if(cardTransactionDTO.getAmount() > account.getBalance()){
+            return new ResponseEntity<>("Account does not have enough amount", HttpStatus.FORBIDDEN);
+        }
+        if(cardTransactionDTO.getCvv() != card.getCvv()){
+            return new ResponseEntity<>("Error cvv", HttpStatus.FORBIDDEN);
+        }
+        //if(cardTransactionDTO.getType() != card.getType()){
+        //  return new ResponseEntity<>("Error card type", HttpStatus.FORBIDDEN);
+        //}
+        //if(cardTransactionDTO.getThruDate().getYear() != card.getThruDate().getYear() && cardTransactionDTO.getThruDate().getMonthValue() != cardTransactionDTO.getThruDate().getMonthValue()){
+        //  return new ResponseEntity<>("Error thru date", HttpStatus.FORBIDDEN);
+        //}
+
+        Transaction newTransaction = new Transaction(TransactionType.DEBITO,- cardTransactionDTO.getAmount(), cardTransactionDTO.getDescription(), LocalDateTime.now(),account);
+        transactionService.saveTransaction(newTransaction);
+
+        account.setBalance(account.getBalance() -cardTransactionDTO.getAmount());
+        accountService.saveAccount(account);
+
+        return new ResponseEntity<>("Payment accepted",HttpStatus.CREATED);
+
     }
 
 

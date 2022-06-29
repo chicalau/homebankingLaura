@@ -12,24 +12,17 @@ public class CardTransactionDTO {
 
     private int cvv;
 
-    private CardType type;
 
     private double amount;
 
     private String description;
 
-    private String cardHolder;
 
-    private LocalDate thruDate;
-
-    public CardTransactionDTO(String number, int cvv, CardType type, double amount, String description, String cardHolder, LocalDate thruDate) {
+    public CardTransactionDTO(String number, int cvv,  double amount, String description) {
         this.number = number;
-        this.cardHolder = cardHolder;
         this.cvv = cvv;
-        this.type = type;
         this.amount = amount;
         this.description = description;
-        this.thruDate = thruDate;
     }
 
     public String getNumber() {
@@ -39,25 +32,11 @@ public class CardTransactionDTO {
         this.number = number;
     }
 
-    public String getCardHolder() {
-       return cardHolder;
-    }
-    public void setCardHolder(String cardHolder) {
-        this.cardHolder = cardHolder;
-    }
-
     public int getCvv() {
         return cvv;
     }
     public void setCvv(int cvv) {
         this.cvv = cvv;
-    }
-
-    public CardType getType() {
-        return type;
-    }
-    public void setType(CardType type) {
-        this.type = type;
     }
 
     public double getAmount() {
@@ -74,11 +53,5 @@ public class CardTransactionDTO {
         this.description = description;
     }
 
-    public LocalDate getThruDate() {
-        return thruDate;
-    }
 
-    public void setThruDate(LocalDate thruDate) {
-        this.thruDate = thruDate;
-    }
 }
