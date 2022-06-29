@@ -25,7 +25,7 @@ Vue.createApp({
                 axios.post('/api/payments',{ number: this.cardNumber, cvv: this.cvv, amount: 1600, month:this.monthFix, year:this.yearFix, description:"compra en origami"})
                 .then(response => {
                     Swal.fire('Pago realizado','','success')
-                    .then(res=> window.location.href = "", 5000)
+                    .then(res=> window.location.href = window.history.back(), 5000)
                 })
                 .catch (error => {
                     Swal.fire({
