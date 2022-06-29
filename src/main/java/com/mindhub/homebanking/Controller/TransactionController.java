@@ -114,12 +114,9 @@ public class TransactionController {
     @PostMapping("/payments")
     public ResponseEntity<Object> paymentTransaction(@RequestBody CardTransactionDTO cardTransactionDTO){
 
-        if(cardTransactionDTO.getNumber().isEmpty()){
-            return new ResponseEntity<>("Complete valid card number", HttpStatus.FORBIDDEN);
-        }
 
         if(cardService.getByNumber(cardTransactionDTO.getNumber()) == null ){
-            return new ResponseEntity<>("Invalid card", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Invalid card number", HttpStatus.FORBIDDEN);
         }
 
         Card card = cardService.getByNumber(cardTransactionDTO.getNumber());
@@ -138,6 +135,9 @@ public class TransactionController {
         //if(cardTransactionDTO.getType() != card.getType()){
         //  return new ResponseEntity<>("Error card type", HttpStatus.FORBIDDEN);
         //}
+        if(!card.isActive()){
+            return new ResponseEntity<>("expired card", HttpStatus.FORBIDDEN);
+        }
 
         if(card.getThruDate().getMonthValue() != cardTransactionDTO.getMonth() && card.getThruDate().getYear() != cardTransactionDTO.getYear()){
           return new ResponseEntity<>("Error thru date", HttpStatus.FORBIDDEN);
