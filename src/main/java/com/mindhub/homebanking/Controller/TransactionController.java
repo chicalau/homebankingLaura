@@ -135,7 +135,7 @@ public class TransactionController {
         //  return new ResponseEntity<>("Error thru date", HttpStatus.FORBIDDEN);
         //}
 
-        Transaction newTransaction = new Transaction(TransactionType.DEBITO, cardTransactionDTO.getAmount(), cardTransactionDTO.getDescription(), LocalDateTime.now(),account);
+        Transaction newTransaction = new Transaction(TransactionType.DEBITO,-cardTransactionDTO.getAmount(), cardTransactionDTO.getDescription(), LocalDateTime.now(),account);
         transactionService.saveTransaction(newTransaction);
 
         account.setBalance(account.getBalance() -cardTransactionDTO.getAmount());
