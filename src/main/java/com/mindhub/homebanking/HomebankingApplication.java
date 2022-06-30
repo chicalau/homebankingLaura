@@ -92,7 +92,7 @@ public class HomebankingApplication {
 			ClientLoan clientLoan2 = new ClientLoan(50000, 12, client1,loan2 );
 			clientLoanRepository.save(clientLoan2);
 
-			Card card1 = new Card(today.plusYears(-5), today.plusYears(5),CardType.DEBITO, CardColor.GOLD, "4656-5900-8090-8888", 711, client1);
+			Card card1 = new Card(today.plusYears(-5), today.plusYears(5).minusDays(5),CardType.DEBITO, CardColor.GOLD, "4656-5900-8090-8888", 711, client1);
 			cardRepository.save(card1);
 
 			Card card2 = new Card(today.plusYears(-4), today.plusDays(-60), CardType.CREDITO, CardColor.TITANIUM, "8978-8673-7777-8956", 116, client1);
