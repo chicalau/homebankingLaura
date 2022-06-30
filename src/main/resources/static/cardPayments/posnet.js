@@ -10,22 +10,30 @@ Vue.createApp({
             month: "",
             year: "",
             yearFix:"",
-            monthFix: ""
+            monthFix: "",
+            amount: "",
+            monto:0,
         }
     },
 
     created(){
+        const URLPARAMS = new URLSearchParams(window.location.search)
+        this.amount = URLPARAMS.get(`amount`)
+        this.monto = Number(this.amount)
+        console.log(this.amount)
+        console.log(this.monto)
 
+        //ikñhasidhw ++++++++++++++++++++++++++++++++++ aca hice el cambioooooooooooooooooooooooooooooooooooooooooooooooooooooo
     },
 
     methods:{
 
         paymentCard () {
 
-                axios.post('/api/payments',{ number: this.cardNumber, cvv: this.cvv, amount: 1600, month:this.monthFix, year:this.yearFix, description:"compra en origami"})
+                axios.post('/api/payments',{ number: this.cardNumber, cvv: this.cvv, amount: this.monto, month:this.monthFix, year:this.yearFix, description:"compra en origami"})
                 .then(response => {
                     Swal.fire('Pago realizado','','success')
-                    .then(res=> window.location.href = window.history.go(-1), 5000)
+                    //.then(res=> window.location.href = , 5000)
                 })
                 .catch (error => {
                     Swal.fire({
