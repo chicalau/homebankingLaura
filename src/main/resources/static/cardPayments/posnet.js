@@ -30,12 +30,13 @@ Vue.createApp({
                 axios.post('/api/payments',{ number: this.cardNumber, cvv: this.cvv, amount: this.monto, month:this.monthFix, year:this.yearFix, description:"compra en origami"})
                 .then(response => {
                     Swal.fire('Pago realizado','','success')
-                    .then(res=> window.close(), 5000)
+                    .then(res=> `https://origamistore.herokuapp.com/web/checkout.html?id=true`, 6000)
                 })
                 .catch (error => {
                     Swal.fire({
                         icon:'error',
                         text: error.response.data
+                        .then(res=> `https://origamistore.herokuapp.com/web/checkout.html?id=false`, 6000)
                         })
                 })
                 console.log(this.cardNumber)
