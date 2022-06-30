@@ -38,6 +38,9 @@ public class HomebankingApplication {
 			Client client2 = new Client("fiorela", "cristaldo", "fio@gmail.com", passwordEncoder.encode("fio"));
 			clientRepository.save(client2);
 
+			Client client4 = new Client("juan carlos", "swal", "swal@gmail.com", passwordEncoder.encode("swal"));
+			clientRepository.save(client4);
+
 			Client client3 = new Client("laura", "chica", "laura@admin.com", passwordEncoder.encode("laura"));
 			clientRepository.save(client3);
 
@@ -49,6 +52,9 @@ public class HomebankingApplication {
 
 			Account account3 = new Account("VIN003", today.plusDays(-11), 150000,client2, AccountType.AHORRO );
 			accountRepository.save(account3);
+
+			Account account4 = new Account("VIN004", today.plusDays(-11), 150000,client4, AccountType.AHORRO );
+			accountRepository.save(account4);
 
 			Transaction transaction1 = new Transaction(TransactionType.DEBITO, -500, "starbucks",LocalDateTime.now().plusDays(-10), account1 );
 			transactionRepository.save(transaction1);
@@ -91,6 +97,9 @@ public class HomebankingApplication {
 
 			Card card2 = new Card(today.plusYears(-4), today.plusDays(-60), CardType.CREDITO, CardColor.TITANIUM, "8978-8673-7777-8956", 116, client1);
 			cardRepository.save(card2);
+
+			Card card3 = new Card(today.plusYears(-4),today.plusYears(5) , CardType.CREDITO, CardColor.TITANIUM, "1111-2222-3333-4444", 444, client4);
+			cardRepository.save(card3);
 
 		};
 	}
