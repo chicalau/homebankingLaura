@@ -98,7 +98,7 @@ public class HomebankingApplication {
 			Card card2 = new Card(today.plusYears(-4), today.plusDays(-60), CardType.CREDITO, CardColor.TITANIUM, "8978-8673-7777-8956", 116, client1);
 			cardRepository.save(card2);
 
-			Card card3 = new Card(today.plusYears(-4),today.plusYears(5) , CardType.CREDITO, CardColor.TITANIUM, "1111-2222-3333-4444", 444, client4);
+			Card card3 = new Card(today.plusYears(-4),today.plusYears(5) , CardType.CREDITO, CardColor.TITANIUM, "1111-2222-3333-4444", 555, client4);
 			cardRepository.save(card3);
 
 		};

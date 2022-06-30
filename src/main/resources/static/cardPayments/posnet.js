@@ -22,8 +22,6 @@ Vue.createApp({
         this.monto = Number(this.amount)
         console.log(this.amount)
         console.log(this.monto)
-
-        //ikñhasidhw ++++++++++++++++++++++++++++++++++ aca hice el cambioooooooooooooooooooooooooooooooooooooooooooooooooooooo
     },
 
     methods:{
